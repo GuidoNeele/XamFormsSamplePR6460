@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="CtxMenuSample.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CtxMenuSample"
+             Title="ListView ContextActions Sample">
+  <ContentPage.BindingContext>
+    <local:MainPageViewModel />
+  </ContentPage.BindingContext>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <DataTemplate x:Key="Temp1">
+        <ViewCell>
+          <ViewCell.ContextActions>
+            <MenuItem Text="{Binding Item1Text}" />
+            <MenuItem Text="{Binding Item2Text}" />
+            <MenuItem Text="{Binding Item3Text}" />
+            <MenuItem Text="{Binding Item4Text}" />
+          </ViewCell.ContextActions>
+          <Grid>
+            <Label Text="{Binding Item1Text, StringFormat='Button text is {0}'}" />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+      <DataTemplate x:Key="Temp2">
+        <ViewCell>
+          <ViewCell.ContextActions>
+            <MenuItem Text="{Binding Item1Text}" />
+            <MenuItem Text="{Binding Item2Text}" />
+          </ViewCell.ContextActions>
+          <Grid>
+            <Label Text="{Binding Item1Text, StringFormat='Button text is {0}'}" />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+      <local:MyDataTemplateSelector x:Key="MyDataTemplateSelector"
+                                    Temp1Template="{StaticResource Temp1}"
+                                    Temp2Template="{StaticResource Temp2}" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <ListView HorizontalOptions="FillAndExpand"
+              ItemTemplate="{StaticResource MyDataTemplateSelector}"
+              ItemsSource="{Binding Items}"
+              VerticalOptions="FillAndExpand" />
+  </ContentPage.Content>
+
+</ContentPage>
