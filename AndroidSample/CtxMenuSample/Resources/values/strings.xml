@@ -6,4 +6,6 @@
   <string name="reset">Reset</string>
   <string name="about">About</string>
   <string name="about_toast">A sample app from a balding guy</string>
+  <string name="single">Single select</string>
+  <string name="multi">Multi select</string>
 </resources>

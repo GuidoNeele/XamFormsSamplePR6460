@@ -9,9 +9,12 @@ using static Android.Widget.AdapterView;
 
 namespace CtxMenuSample
 {
-  [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+  [Activity(Label = "@string/app_name", Theme = "@android:style/Theme.Holo.Light.DarkActionBar", MainLauncher = true)]
   public class MainActivity : ListActivity, IOnItemLongClickListener, ActionMode.ICallback, IMultiChoiceModeListener
   {
+    private const string SINGLE_SELECT = "SINGLE_SELECT";
+    private const string MULTI_SELECT = "MULTI_SELECT";
+
     private static readonly string STATE_CHOICE_MODE = "choiceMode";
     private static readonly string STATE_MODEL = "model";
     private static readonly string[] items = { "lorem", "ipsum", "dolor",
@@ -23,6 +26,8 @@ namespace CtxMenuSample
     private IList<string> words = null;
     private ArrayAdapter<string> adapter = null;
     private ActionMode activeMode = null;
+
+    private string behavior = MULTI_SELECT;
 
     protected override void OnCreate(Bundle savedInstanceState)
     {
@@ -66,18 +71,17 @@ namespace CtxMenuSample
     {
       switch (item.ItemId)
       {
-        case Resource.Id.add:
-          AddWord();
+        case Resource.Id.single:
+          this.behavior = SINGLE_SELECT;
+
+          Toast.MakeText(this, "ActionMode behaves like a single select", ToastLength.Long).Show();
 
           return (true);
 
-        case Resource.Id.reset:
-          InitAdapter(null);
+        case Resource.Id.multi:
+          this.behavior = MULTI_SELECT;
 
-          return (true);
-
-        case Resource.Id.about:
-          Toast.MakeText(this, Resource.String.about_toast, ToastLength.Long).Show();
+          Toast.MakeText(this, "ActionMode behaves like a multi select", ToastLength.Long).Show();
 
           return (true);
       }
@@ -226,7 +230,7 @@ namespace CtxMenuSample
     {
       if (this.activeMode != null)
       {
-        if (this.ListView.CheckedItemCount > 1)
+        if (this.behavior == SINGLE_SELECT && this.ListView.CheckedItemCount > 1)
         {
 
           SparseBooleanArray checkarr = this.ListView.CheckedItemPositions;

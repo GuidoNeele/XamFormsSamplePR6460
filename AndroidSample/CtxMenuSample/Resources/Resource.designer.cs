@@ -2354,9 +2354,6 @@ namespace CtxMenuSample
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int about = 2131230896;
-			
 			// aapt resource value: 0x7f08009c
 			public const int action0 = 2131230876;
 			
@@ -2618,6 +2615,9 @@ namespace CtxMenuSample
 			// aapt resource value: 0x7f080053
 			public const int mini = 2131230803;
 			
+			// aapt resource value: 0x7f0800b0
+			public const int multi = 2131230896;
+			
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
 			
@@ -2665,9 +2665,6 @@ namespace CtxMenuSample
 			
 			// aapt resource value: 0x7f0800b2
 			public const int remove = 2131230898;
-			
-			// aapt resource value: 0x7f0800af
-			public const int reset = 2131230895;
 			
 			// aapt resource value: 0x7f08004a
 			public const int right = 2131230794;
@@ -2749,6 +2746,9 @@ namespace CtxMenuSample
 			
 			// aapt resource value: 0x7f080025
 			public const int showTitle = 2131230757;
+			
+			// aapt resource value: 0x7f0800af
+			public const int single = 2131230895;
 			
 			// aapt resource value: 0x7f08008b
 			public const int smallLabel = 2131230859;
@@ -3274,6 +3274,9 @@ namespace CtxMenuSample
 			// aapt resource value: 0x7f090028
 			public const int context_title = 2131296296;
 			
+			// aapt resource value: 0x7f09002e
+			public const int multi = 2131296302;
+			
 			// aapt resource value: 0x7f090021
 			public const int password_toggle_content_description = 2131296289;
 			
@@ -3294,6 +3297,9 @@ namespace CtxMenuSample
 			
 			// aapt resource value: 0x7f090011
 			public const int search_menu_title = 2131296273;
+			
+			// aapt resource value: 0x7f09002d
+			public const int single = 2131296301;
 			
 			// aapt resource value: 0x7f090026
 			public const int status_bar_notification_info_overflow = 2131296294;
